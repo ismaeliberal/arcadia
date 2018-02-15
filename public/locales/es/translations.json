@@ -1,0 +1,10 @@
+{
+  "welcome": "Bienvenido a React",
+  "getStarted": "Para empezar, edita <1>src/App.js</1> y guarda para recargar.",
+  "counterSync": "Contador síncrono",
+  "counterAsync": "Contador asíncrono",
+  "search": "Buscar",
+  "value": "Valor",
+  "increment": "Incrementar",
+  "decrement": "Decrementar"
+}

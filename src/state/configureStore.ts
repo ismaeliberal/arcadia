@@ -2,8 +2,11 @@ import { createStore, combineReducers, applyMiddleware, Store } from 'redux';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { LogEntryObject } from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
 
-import { reducers } from './modules';
+import { reducers, rootSaga } from './modules';
+
+const sagaMiddleware = createSagaMiddleware();
 
 import history from 'src/services/history';
 
@@ -11,7 +14,7 @@ const configureStore = (): Store<{}> => {
   const initialState: object = {};
   const enhancers: Function[] = [];
   const middleware = [
-    /* sagaMiddleware, */
+    sagaMiddleware,
     // Build the middleware for intercepting and dispatching navigation actions
     routerMiddleware(history),
   ];
@@ -53,11 +56,11 @@ const configureStore = (): Store<{}> => {
   const store = createStore(rootReducer(), initialState, composedEnhancers);
 
   // Run all sagas
-  /* let sagaTasks = sagaMiddleware.run(rootSaga); */
+  let sagaTasks = sagaMiddleware.run(rootSaga);
 
   if (process.env.NODE_ENV !== 'production') {
     if (module.hot) {
-      /* module.hot.accept('./modules', () => {
+      module.hot.accept('./modules', () => {
         // Replace reducer
         store.replaceReducer(rootReducer());
 
@@ -66,7 +69,7 @@ const configureStore = (): Store<{}> => {
         sagaTasks.done.then(() => {
           sagaTasks = sagaMiddleware.run(rootSaga);
         });
-      }); */
+      });
     }
   }
 

@@ -6,5 +6,11 @@
   "search": "Search",
   "value": "Value",
   "increment": "Increment",
-  "decrement": "Decrement"
+  "decrement": "Decrement",
+  "login": "Pagina de login-en",
+  "name": "Nombre-en",
+  "mail": "Email-en",
+  "tel": "Teléfono-en",
+  "code": "Código-en",
+  "submit": "Enviar-en"
 }

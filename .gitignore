@@ -24,3 +24,5 @@ yarn-error.log*
 .firebaserc
 
 src/services/firebase/firebaseConfig\.ts
+
+functions/importJsonToFirestore/service-key\.json

@@ -19,6 +19,9 @@ const NavMenu: React.SFC<Props> = ({ t }) => (
     <NavLink className="margin" activeClassName="selected" to="/search">
       {t('search')}
     </NavLink>
+    <NavLink className="margin" activeClassName="selected" to="/login">
+      {t('login')}
+    </NavLink>
   </div>
 );
 
